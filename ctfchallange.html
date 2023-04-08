@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+   <meta charset="utf-8" />
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <title></title>
+   <meta name="description" content="" />
+   <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <link rel="stylesheet" href="" />
+
+   <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+   <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
+
+   <style>
+      * {
+         margin: 0;
+         padding: 0;
+         box-sizing: border-box;
+         font-family: sans-serif;
+      }
+
+      button {
+         background-color: #47af53;
+         /* Green */
+         border: none;
+         color: white;
+         padding: 3px 6px;
+         text-align: center;
+         text-decoration: none;
+         display: inline-block;
+         font-size: 12px;
+         margin: 4px 2px;
+         cursor: pointer;
+         border-radius: 8px;
+      }
+
+
+      #myButton:hover {
+         background-color: lightblue;
+         cursor: pointer;
+      }
+
+
+      .wrapper {
+         display: flex;
+         flex-wrap: wrap;
+         padding: 50px 50px;
+         justify-content: center;
+         align-items: center;
+         background-color: #98bdcd;
+      }
+
+      .card {
+         width: 350px;
+         min-height: 350px;
+         display: block;
+         position: relative;
+         margin: 50px 50px;
+         border: 2px solid grey;
+         padding: 20px 20px;
+         border-radius: 15px;
+         background-color: white;
+         align-items: center;
+         justify-content: center;
+         text-align: center;
+      }
+
+      .card-header {
+         font-size: 25px;
+         font-weight: 900;
+      }
+
+      .card-body {
+         width: 100%;
+         min-height: 50px;
+         text-align: justify;
+         padding: 10px 10px;
+      }
+
+      .my_form {
+         padding: 5px 5px;
+         display: block;
+      }
+
+      input {
+         padding: 3px 6px;
+         border-radius: 3px;
+         padding: 5px 5px;
+         margin-top: 5px;
+         transition: 0.3s;
+         font-size: 14px;
+      }
+
+      #submit,
+      input[type="submit"] {
+         background-color: #0c222c;
+         /* Green */
+         border: none;
+         color: white;
+         padding: 5px;
+         text-align: center;
+         text-decoration: none;
+         display: inline-block;
+         font-size: 16px;
+         margin: 12px 70px;
+         cursor: pointer;
+         transition: 0.3s;
+      }
+
+      #submit:hover,
+      input[type="submit"]:hover {
+         scale: 1.1;
+         background-color: #86bbda;
+         color: white;
+      }
+
+      input:hover {
+         scale: 1.1;
+      }
+   </style>
+</head>
+
+<body>
+   <div class="wrapper">
+      <div class="card" id="card1">
+         <div class="card-header">Flag box 1</div>
+         <div class="card-body">
+            <h3>Answer ME!</h3>
+            <p>
+               Type of attack that attempts to steal your money, or your identity, by getting you to reveal
+               personal information -- such as credit card numbers, bank information, or passwords -- on websites that
+               pretend to be legitimate.
+            </p>
+            <h5>Hint:answer format CTF{ }</h5>
+
+            <form id="my_form1" class="my_form1">
+               Email:<input type="email" id="emaiId1" placeholder="Enter your email" required /><br />
+               Name:<input type="text" id="name1" placeholder="Enter your name" required /><br />
+               Enter flag:
+               <input type="text" id="Flag_name1" placeholder="Enter Flag" required />
+               <input type="submit" id="submit1" value="SUBMIT FLAG" />
+            </form>
+         </div>
+      </div>
+      <div class="card" id="card2">
+         <div class="card-header">Flag box 2</div>
+         <div class="card-body">
+            <h3>Encryption Algorithm</h3>
+
+            <p>
+               The symmetric cipher splits messages into blocks of 64 bits and encrypt them individually.
+               It is known for its tremendous speed and overall effectiveness.Tell me who I am___
+            </p>
+            <h5>format:CTF{ }</h5>
+            <form class="my_form" id="my_form2">
+               Email:<input type="email" id="emaiId2" placeholder="Enter your email" required /><br />
+               Name:<input type="text" id="name2" placeholder="Enter your name" required /><br />
+               Enter flag:
+               <input type="text" id="Flag_name2" placeholder="Enter Flag" required />
+               <input type="submit" id="submit2" value="SUBMIT FLAG" />
+            </form>
+         </div>
+      </div>
+      <div class="card" id="card3">
+         <div class="card-header">Flag box 3</div>
+         <div class="card-body">
+            <h3>BASE 64</h3>
+            <p>
+               There are so many different ways of encoding and decoding
+               information nowadays...One of them will work!
+               Q1RGe0ZsYWdneVdhZ2d5UmFnZ3l9
+            </p>
+            <h5>format:CTF{ }</h5>
+            <form class="my_form" id="my_form3">
+               Email:<input type="email" id="emaiId3" placeholder="Enter your email" required /><br />
+               Name:<input type="text" id="name3" placeholder="Enter your name" required /><br />
+               Enter flag:
+               <input type="text" id="Flag_name3" placeholder="Enter Flag" required />
+               <input type="submit" id="submit3" value="SUBMIT FLAG" />
+            </form>
+         </div>
+      </div>
+      <div class="card" id="card4">
+         <div class="card-header">Flag box 4</div>
+         <div class="card-body">
+            <h3>Base 2x2x2x2</h3>
+            <p>
+            <h5>Convert Me!</h5>
+            43 54 46 7B 34 37 43
+            31 31 5F 31 35 5F 45 35 33 56 55 4C 7D
+            </p>
+            <h5>format:CTF{ }</h5>
+            <form class="my_form" id="my_form4">
+               Email:<input type="email" id="emaiId4" placeholder="Enter your email" required /><br />
+               Name:<input type="text" id="name4" placeholder="Enter your name" required /><br />
+               Enter flag:
+               <input type="text" id="Flag_name4" placeholder="Enter Flag" required />
+               <input type="submit" id="submit4" value="SUBMIT FLAG" />
+            </form>
+         </div>
+      </div>
+      <div class="card" id="card5">
+         <div class="card-header">Flag box 5</div>
+         <div class="card-body">
+            <h3>Secret key</h3>
+            <p>
+            <h5>find Me!</h5>There are two files you need a secret key to open other file and answer is reverse of word
+            CTF.<br>
+            <h5>Hint: format of flag FTC</h5>
+            </p>
+            <div class="profile__buttons">
+               <a download="/findmehere.zip" href="findmehere.zip" class="button">Download ZIP</a>
+
+            </div>
+            <form class="my_form" id="my_form5">
+               Email:<input type="email" id="emaiId5" placeholder="Enter your email" required /><br />
+               Name:<input type="text" id="name5" placeholder="Enter your name" required /><br />
+               Enter flag:<input type="text" id="Flag_name5" placeholder="Enter Flag" required />
+               <input type="submit" id="submit5" value="SUBMIT FLAG" />
+            </form>
+         </div>
+      </div>
+      <div class="card" id="card6">
+         <div class="card-header">Flag box 6</div>
+         <div class="card-body">
+            <h3>PLANE</h3>
+            <p>The owns of the property inside the image are what you're looking for and Ignore the
+               spaces.</p>
+            <h5>Hint: ignore spaces & format:CTF{ } and </h5>
+            <div class="profile__buttons">
+               <a download="hel.jpg" href="hel.jpg" class="button">Download </a>
+
+            </div>
+            <form class="my_form" id="my_form6">
+               Email:<input type="email" id="emaiId6" placeholder="Enter your email" required /><br />
+               Name:<input type="text" id="name6" placeholder="Enter your name" required /><br />
+               Enter flag:
+               <input type="text" id="Flag_name6" placeholder="Enter Flag" required />
+               <input type="submit" id="submit6" value="SUBMIT FLAG" />
+            </form>
+         </div>
+      </div>
+      <div class="card" id="card7">
+         <div class="card-header">Flag box 7</div>
+         <div class="card-body">
+            <h3>Morse Code</h3>
+            <p> convert me to text ..-. .-.. .- --. ... .- -- ..- . .-.. -- --- .-. ... . .. ... -.-. --- --- .-.. -...
+            </p> <br>
+            <h5>format:CTF{ }</h5>
+            <form class="my_form" id="my_form7">
+               Email:<input type="email" id="emaiId7" placeholder="Enter your email" required /><br />
+               Name:<input type="text" id="name7" placeholder="Enter your name" required /><br />
+               Enter flag:
+               <input type="text" id="Flag_name7" placeholder="Enter Flag" required />
+               <input type="submit" id="submit7" value="SUBMIT FLAG" />
+            </form>
+         </div>
+      </div>
+      <div class="card" id="card8">
+         <div class="card-header">Flag box 8</div>
+         <div class="card-body">
+
+            <h3> Inspect Me!</h3>
+            <P>The reason we all are gathered here for is to be searched in source code of the below website .</P>
+            <div>
+               <a download="" href="https://astounding-starlight-9a737e.netlify.app" class="button">Web site link</a>
+            </div>
+            <button
+               onclick="alert(' I am  scripting language that enables you to create dynamically updating content, control multimedia, animate images, and pretty much everything else!..find my name i will there ')">Hint:</button>
+
+            <form class="my_form" id="my_form8">
+               Email:<input type="email" id="emaiId8" placeholder="Enter your email" required /><br />
+               Name:<input type="text" id="name8" placeholder="Enter your name" required /><br />
+               Enter flag:
+               <input type="text" id="Flag_name8" placeholder="Enter Flag" required />
+               <input type="submit" id="submit8" value="SUBMIT FLAG" />
+            </form>
+         </div>
+      </div>
+      <div class="card" id="card9">
+         <div class="card-header">Flag box 9</div>
+         <div class="card-body">
+            <h3>IPL Fan</h3>
+            <b></b>
+            The IPL team which has record of both Lowest Score and Highest Score in history.
+            Team name is to be searched in code of below website
+            <div>
+               <a download="" href="https://astounding-starlight-9a737e.netlify.app" class="button">website link</a>
+            </div>
+            <button
+               onclick="alert('i am ___ sheet language used for describing the presentation of a document written in a markup language such as HTML or XML..find my name i will there ')">Hint:</button>
+
+            <form class="my_form" id="my_form9">
+               Email:<input type="email" id="emaiId9" placeholder="Enter your email" required /><br />
+               Name:<input type="text" id="name9" placeholder="Enter your name" required /><br />
+               Enter flag:
+               <input type="text" id="Flag_name9" placeholder="Enter Flag" required />
+               <input type="submit" id="submit9" value="SUBMIT FLAG" />
+            </form>
+         </div>
+      </div>
+      <div class="card" id="card10">
+         <div class="card-header">Flag box 10</div>
+         <div class="card-body">
+            <h3>Kannadiga</h3>
+            I am RCB Fan .Our famous slogan in kannada..find me in the below website.
+            <div>
+               <a download="" href="https://astounding-starlight-9a737e.netlify.app" class="button">click me</a>
+            </div>
+            <button
+               onclick="alert(' try getting at the end of the website you will  notice changes then go and search @ contact i will be get   ')">Hint:</button>
+
+            <form class="my_form" id="my_form10">
+               Email:<input type="email" id="emaiId10" placeholder="Enter your email" required /><br />
+               Name:<input type="text" id="name10" placeholder="Enter your name" required /><br />
+               Enter flag:
+               <input type="text" id="Flag_name10" placeholder="Enter Flag" required />
+               <input type="submit" id="submit10" value="SUBMIT FLAG" />
+            </form>
+         </div>
+      </div>
+   </div>
+   <script>
+      // disable right click
+      document.addEventListener("contextmenu", (event) =>
+         event.preventDefault()
+      );
+
+      document.onkeydown = function (e) {
+         // disable F12 key
+         if (e.keyCode == 123) {
+            return false;
+         }
+
+         // disable I key
+         if (e.ctrlKey && e.shiftKey && e.keyCode == 73) {
+            return false;
+         }
+
+         // disable J key
+         if (e.ctrlKey && e.shiftKey && e.keyCode == 74) {
+            return false;
+         }
+
+         // disable U key
+         if (e.ctrlKey && e.keyCode == 85) {
+            return false;
+         }
+      };
+   </script>
+   <script>
+
+
+
+      const inputField1 = document.getElementById("Flag_name1");
+      inputField1.addEventListener("change", () => {
+         if (inputField1.value === "CTF{Phishing}") {
+            alert("Flag is valid,now submit");
+         } else {
+            alert(
+               "You have entered invalid flag!kindly refresh the page to try again."
+            );
+            document.getElementById("submit1").style.visibility = 'hidden';
+         }
+      });
+
+
+
+      const inputField2 = document.getElementById("Flag_name2");
+      inputField2.addEventListener("change", () => {
+         if (inputField2.value === "CTF{Blowfish}") {
+            alert("Flag is valid,now submit");
+         } else {
+            alert(
+               "You have entered invalid flag!kindly refresh the page to try again."
+            );
+            document.getElementById("submit2").style.visibility = 'hidden';
+         }
+      });
+
+
+
+      const inputField3 = document.getElementById("Flag_name3");
+
+      inputField3.addEventListener("change", () => {
+         if (inputField3.value === "CTF{FlaggyWaggyRaggy}") {
+            alert("Flag is valid,now submit");
+            // inputField3.disabled = true;
+         } else {
+            alert(
+               "You have entered invalid flag!kindly refresh the page to try again."
+            );
+            document.getElementById("submit3").style.visibility = 'hidden';
+         }
+      });
+
+      const inputField4 = document.getElementById("Flag_name4");
+
+      inputField4.addEventListener("change", () => {
+         if (inputField4.value === "CTF{47C11_15_E53VUL}") {
+            alert("Flag is valid,now submit");
+            // inputField4.disabled = true;
+         } else {
+            alert(
+               "You have entered invalid flag!kindly refresh the page to try again."
+            );
+            document.getElementById("submit4").style.visibility = 'hidden';
+         }
+      });
+
+      const inputField5 = document.getElementById("Flag_name5");
+
+      inputField5.addEventListener("change", () => {
+         if (inputField5.value === "FTC{esikbgaku}") {
+            alert("Flag is valid,now submit");
+            // inputField5.disabled = true;
+         } else {
+            alert(
+               "You have entered invalid flag!kindly refresh the page to try again."
+            );
+            document.getElementById("submit5").style.visibility = 'hidden';
+         }
+      });
+
+      const inputField6 = document.getElementById("Flag_name6");
+
+      inputField6.addEventListener("change", () => {
+         if (inputField6.value === "CTF{JETRANGERXLLC}") {
+            alert("Flag is valid,now submit");
+            // inputField6.disabled = true;
+         } else {
+            alert(
+               "You have entered invalid flag!kindly refresh the page to try again."
+            );
+            document.getElementById("submit6").style.visibility = 'hidden';
+         }
+      });
+
+      const inputField7 = document.getElementById("Flag_name7");
+
+      inputField7.addEventListener("change", () => {
+         if (inputField7.value === "CTF{FLAGSAMUELMORSEISCOOLB}") {
+            alert("Flag is valid,now submit");
+            // inputField7.disabled = true;
+         } else {
+            alert(
+               "You have entered invalid flag!kindly refresh the page to try again."
+            );
+            document.getElementById("submit7").style.visibility = 'hidden';
+         }
+      });
+
+      const inputField8 = document.getElementById("Flag_name8");
+
+      inputField8.addEventListener("change", () => {
+         if (inputField8.value === "CTF{TECHNOPHILIA_2k23}") {
+            alert("Flag is valid,now submit");
+            // inputField8.disabled = true;
+         } else {
+            alert(
+               "You have entered invalid flag!kindly refresh the page to try again."
+            );
+            document.getElementById("submit8").style.visibility = 'hidden';
+         }
+      });
+
+      const inputField9 = document.getElementById("Flag_name9");
+
+      inputField9.addEventListener("change", () => {
+         if (inputField9.value === "CTF{RoyalChallengersBangalore2k23}") {
+            alert("Flag is valid,now submit");
+            // inputField9.disabled = true;
+         } else {
+            alert(
+               "You have entered invalid flag!kindly refresh the page to try again."
+            );
+            document.getElementById("submit9").style.visibility = 'hidden';
+         }
+      });
+
+      const inputField10 = document.getElementById("Flag_name10");
+
+      inputField10.addEventListener("change", () => {
+         if (inputField10.value === "CTF{ee_sal@cup_n@mde2023}") {
+            alert("Flag is valid,now submit");
+            // inputField10.disabled = true;
+         } else {
+            alert(
+               "You have entered invalid flag!kindly refresh the page to try again."
+            );
+            document.getElementById("submit10").style.visibility = 'hidden';
+         }
+      });
+   </script>
+
+   <script>
+      // Initialize Firebase
+      var config = {
+         apiKey: "AIzaSyATFG_61nfbgDIlSiU8oMq7zvyzqCA2Hvs",
+         authDomain: "webhunt-3aa92.firebaseapp.com",
+         projectId: "webhunt-3aa92",
+         storageBucket: "webhunt-3aa92.appspot.com",
+         messagingSenderId: "555877628624",
+         appId: "1:555877628624:web:70abffe0428c5a13fefcd5"
+      };
+      firebase.initializeApp(config);
+
+      // Get a reference to the database
+      var database = firebase.database();
+
+      // Add an event listener to the form submit button
+      document
+         .getElementById("my_form1")
+         .addEventListener("submit", function (event) {
+            // Prevent the form from submitting normally
+            event.preventDefault();
+
+            // Get the values from the form inputs
+            var email = document.getElementById("emaiId1").value;
+            var name = document.getElementById("name1").value;
+            var flag = document.getElementById("Flag_name1").value;
+
+            // Push the values to the database
+            database
+               .ref("users1")
+               .push({
+                  email: email,
+                  name: name,
+                  flag: flag,
+               })
+               .then(function () {
+                  // Clear the form inputs
+                  document.getElementById("emaiId1").value = "";
+                  document.getElementById("name1").value = "";
+                  document.getElementById("Flag_name1").value = "";
+
+                  // Show a success message
+                  alert("Flag submitted successfully!");
+                  const mydiv = document.getElementById("card1");
+                  mydiv.setAttribute("disabled", true);
+                  const form = mydiv.querySelector("form");
+                  const inputs = form.querySelectorAll("input");
+                  inputs.forEach((input) =>
+                     input.setAttribute("disabled", true)
+                  );
+               })
+               .catch(function (error) {
+                  // Show an error message
+                  alert("Error submitting flag: " + error.message);
+               });
+         });
+
+      document
+         .getElementById("my_form2")
+         .addEventListener("submit", function (event) {
+            // Prevent the form from submitting normally
+            event.preventDefault();
+
+            // Get the values from the form inputs
+            var email = document.getElementById("emaiId2").value;
+            var name = document.getElementById("name2").value;
+            var flag = document.getElementById("Flag_name2").value;
+
+            // Push the values to the database
+            database
+               .ref("users2")
+               .push({
+                  email: email,
+                  name: name,
+                  flag: flag,
+               })
+               .then(function () {
+                  // Clear the form inputs
+                  document.getElementById("emaiId2").value = "";
+                  document.getElementById("name2").value = "";
+                  document.getElementById("Flag_name2").value = "";
+
+                  // Show a success message
+                  alert("Flag submitted successfully!");
+                  const mydiv = document.getElementById("card2");
+                  mydiv.setAttribute("disabled", true);
+                  const form = mydiv.querySelector("form");
+                  const inputs = form.querySelectorAll("input");
+                  inputs.forEach((input) =>
+                     input.setAttribute("disabled", true)
+                  );
+               })
+               .catch(function (error) {
+                  // Show an error message
+                  alert("Error submitting flag: " + error.message);
+               });
+         });
+      document
+         .getElementById("my_form3")
+         .addEventListener("submit", function (event) {
+            // Prevent the form from submitting normally
+            event.preventDefault();
+
+            // Get the values from the form inputs
+            var email = document.getElementById("emaiId3").value;
+            var name = document.getElementById("name3").value;
+            var flag = document.getElementById("Flag_name3").value;
+
+            // Push the values to the database
+            database
+               .ref("users3")
+               .push({
+                  email: email,
+                  name: name,
+                  flag: flag,
+               })
+               .then(function () {
+                  // Clear the form inputs
+                  document.getElementById("emaiId3").value = "";
+                  document.getElementById("name3").value = "";
+                  document.getElementById("Flag_name3").value = "";
+
+                  // Show a success message
+                  alert("Flag submitted successfully!");
+                  const mydiv = document.getElementById("card3");
+                  mydiv.setAttribute("disabled", true);
+                  const form = mydiv.querySelector("form");
+                  const inputs = form.querySelectorAll("input");
+                  inputs.forEach((input) =>
+                     input.setAttribute("disabled", true)
+                  );
+               })
+               .catch(function (error) {
+                  // Show an error message
+                  alert("Error submitting flag: " + error.message);
+               });
+         });
+      document
+         .getElementById("my_form4")
+         .addEventListener("submit", function (event) {
+            // Prevent the form from submitting normally
+            event.preventDefault();
+
+            // Get the values from the form inputs
+            var email = document.getElementById("emaiId4").value;
+            var name = document.getElementById("name4").value;
+            var flag = document.getElementById("Flag_name4").value;
+
+            // Push the values to the database
+            database
+               .ref("users4")
+               .push({
+                  email: email,
+                  name: name,
+                  flag: flag,
+               })
+               .then(function () {
+                  // Clear the form inputs
+                  document.getElementById("emaiId4").value = "";
+                  document.getElementById("name4").value = "";
+                  document.getElementById("Flag_name4").value = "";
+
+                  // Show a success message
+                  alert("Flag submitted successfully!");
+                  const mydiv = document.getElementById("card4");
+                  mydiv.setAttribute("disabled", true);
+                  const form = mydiv.querySelector("form");
+                  const inputs = form.querySelectorAll("input");
+                  inputs.forEach((input) =>
+                     input.setAttribute("disabled", true)
+                  );
+               })
+               .catch(function (error) {
+                  // Show an error message
+                  alert("Error submitting flag: " + error.message);
+               });
+         });
+      document
+         .getElementById("my_form5")
+         .addEventListener("submit", function (event) {
+            // Prevent the form from submitting normally
+            event.preventDefault();
+
+            // Get the values from the form inputs
+            var email = document.getElementById("emaiId5").value;
+            var name = document.getElementById("name5").value;
+            var flag = document.getElementById("Flag_name5").value;
+
+            // Push the values to the database
+            database
+               .ref("users5")
+               .push({
+                  email: email,
+                  name: name,
+                  flag: flag,
+               })
+               .then(function () {
+                  // Clear the form inputs
+                  document.getElementById("emaiId5").value = "";
+                  document.getElementById("name5").value = "";
+                  document.getElementById("Flag_name5").value = "";
+
+                  // Show a success message
+                  alert("Flag submitted successfully!");
+                  const mydiv = document.getElementById("card5");
+                  mydiv.setAttribute("disabled", true);
+                  const form = mydiv.querySelector("form");
+                  const inputs = form.querySelectorAll("input");
+                  inputs.forEach((input) =>
+                     input.setAttribute("disabled", true)
+                  );
+               })
+               .catch(function (error) {
+                  // Show an error message
+                  alert("Error submitting flag: " + error.message);
+               });
+         });
+      document
+         .getElementById("my_form6")
+         .addEventListener("submit", function (event) {
+            // Prevent the form from submitting normally
+            event.preventDefault();
+
+            // Get the values from the form inputs
+            var email = document.getElementById("emaiId6").value;
+            var name = document.getElementById("name6").value;
+            var flag = document.getElementById("Flag_name6").value;
+
+            // Push the values to the database
+            database
+               .ref("users6")
+               .push({
+                  email: email,
+                  name: name,
+                  flag: flag,
+               })
+               .then(function () {
+                  // Clear the form inputs
+                  document.getElementById("emaiId6").value = "";
+                  document.getElementById("name6").value = "";
+                  document.getElementById("Flag_name6").value = "";
+
+                  // Show a success message
+                  alert("Flag submitted successfully!");
+                  const mydiv = document.getElementById("card6");
+                  mydiv.setAttribute("disabled", true);
+                  const form = mydiv.querySelector("form");
+                  const inputs = form.querySelectorAll("input");
+                  inputs.forEach((input) =>
+                     input.setAttribute("disabled", true)
+                  );
+               })
+               .catch(function (error) {
+                  // Show an error message
+                  alert("Error submitting flag: " + error.message);
+               });
+         });
+      document
+         .getElementById("my_form7")
+         .addEventListener("submit", function (event) {
+            // Prevent the form from submitting normally
+            event.preventDefault();
+
+            // Get the values from the form inputs
+            var email = document.getElementById("emaiId7").value;
+            var name = document.getElementById("name7").value;
+            var flag = document.getElementById("Flag_name7").value;
+
+            // Push the values to the database
+            database
+               .ref("users7")
+               .push({
+                  email: email,
+                  name: name,
+                  flag: flag,
+               })
+               .then(function () {
+                  // Clear the form inputs
+                  document.getElementById("emaiId7").value = "";
+                  document.getElementById("name7").value = "";
+                  document.getElementById("Flag_name7").value = "";
+
+                  // Show a success message
+                  alert("Flag submitted successfully!");
+                  const mydiv = document.getElementById("card7");
+                  mydiv.setAttribute("disabled", true);
+                  const form = mydiv.querySelector("form");
+                  const inputs = form.querySelectorAll("input");
+                  inputs.forEach((input) =>
+                     input.setAttribute("disabled", true)
+                  );
+               })
+               .catch(function (error) {
+                  // Show an error message
+                  alert("Error submitting flag: " + error.message);
+               });
+         });
+      document
+         .getElementById("my_form8")
+         .addEventListener("submit", function (event) {
+            // Prevent the form from submitting normally
+            event.preventDefault();
+
+            // Get the values from the form inputs
+            var email = document.getElementById("emaiId8").value;
+            var name = document.getElementById("name8").value;
+            var flag = document.getElementById("Flag_name8").value;
+
+            // Push the values to the database
+            database
+               .ref("users8")
+               .push({
+                  email: email,
+                  name: name,
+                  flag: flag,
+               })
+               .then(function () {
+                  // Clear the form inputs
+                  document.getElementById("emaiId8").value = "";
+                  document.getElementById("name8").value = "";
+                  document.getElementById("Flag_name8").value = "";
+
+                  // Show a success message
+                  alert("Flag submitted successfully!");
+                  const mydiv = document.getElementById("card8");
+                  mydiv.setAttribute("disabled", true);
+                  const form = mydiv.querySelector("form");
+                  const inputs = form.querySelectorAll("input");
+                  inputs.forEach((input) =>
+                     input.setAttribute("disabled", true)
+                  );
+               })
+               .catch(function (error) {
+                  // Show an error message
+                  alert("Error submitting flag: " + error.message);
+               });
+         });
+      document
+         .getElementById("my_form9")
+         .addEventListener("submit", function (event) {
+            // Prevent the form from submitting normally
+            event.preventDefault();
+
+            // Get the values from the form inputs
+            var email = document.getElementById("emaiId9").value;
+            var name = document.getElementById("name9").value;
+            var flag = document.getElementById("Flag_name9").value;
+
+            // Push the values to the database
+            database
+               .ref("users9")
+               .push({
+                  email: email,
+                  name: name,
+                  flag: flag,
+               })
+               .then(function () {
+                  // Clear the form inputs
+                  document.getElementById("emaiId9").value = "";
+                  document.getElementById("name9").value = "";
+                  document.getElementById("Flag_name9").value = "";
+
+                  // Show a success message
+                  alert("Flag submitted successfully!");
+                  const mydiv = document.getElementById("card9");
+                  mydiv.setAttribute("disabled", true);
+                  const form = mydiv.querySelector("form");
+                  const inputs = form.querySelectorAll("input");
+                  inputs.forEach((input) =>
+                     input.setAttribute("disabled", true)
+                  );
+               })
+               .catch(function (error) {
+                  // Show an error message
+                  alert("Error submitting flag: " + error.message);
+               });
+         });
+      document
+         .getElementById("my_form10")
+         .addEventListener("submit", function (event) {
+            // Prevent the form from submitting normally
+            event.preventDefault();
+
+            // Get the values from the form inputs
+            var email = document.getElementById("emaiId10").value;
+            var name = document.getElementById("name10").value;
+            var flag = document.getElementById("Flag_name10").value;
+
+            // Push the values to the database
+            database
+               .ref("users10")
+               .push({
+                  email: email,
+                  name: name,
+                  flag: flag,
+               })
+               .then(function () {
+                  // Clear the form inputs
+                  document.getElementById("emaiId10").value = "";
+                  document.getElementById("name10").value = "";
+                  document.getElementById("Flag_name10").value = "";
+
+                  // Show a success message
+                  alert("Flag submitted successfully!");
+                  const mydiv = document.getElementById("card10");
+                  mydiv.setAttribute("disabled", true);
+                  const form = mydiv.querySelector("form");
+                  const inputs = form.querySelectorAll("input");
+                  inputs.forEach((input) =>
+                     input.setAttribute("disabled", true)
+                  );
+               })
+               .catch(function (error) {
+                  // Show an error message
+                  alert("Error submitting flag: " + error.message);
+               });
+         });
+   </script>
+</body>
+
+</html>
